@@ -25,8 +25,7 @@
         const liDOM = document.createElement('li');
         liDOM.textContent = `${index + 1}件目のクイズデータ`;
 
-        // buildQuizList関数については、次のfeaturebrach(feature/buildQuizList-function)にて実装
-        // const quizLiElement = buildQuizList(quizData, liDOM);
+        const quizLiElement = buildQuizList(quizData, liDOM);
 
         ulDOM.appendChild(quizLiElement);
       });
@@ -45,5 +44,20 @@
   //    - quiz : オブジェクト(クイズデータ)
   //  - 戻り値
   //    - ul要素のDOM
+
+  function buildQuizList(quizData, liDOM) {
+    const quizDataWrapElement = document.createElement('ul');
+
+    for (const key in quizData) {
+      const quizDataliElement = document.createElement('li');
+      quizDataliElement.innerHTML = `<strong>${key}</strong> : ${quizData[key]}`;
+
+      quizDataWrapElement.appendChild(quizDataliElement);
+    }
+
+    liDOM.appendChild(quizDataWrapElement);
+
+    return liDOM;
+  }
 
 })();
