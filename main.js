@@ -19,14 +19,14 @@
       return response.json();
     })
     .then((data) => {
-      data.results.forEach((quizdata, index) => {
-        const ulDOM = document.getElementById('quiz-list');
+      const ulDOM = document.getElementById('quiz-list');
 
+      data.results.forEach((quizData, index) => {
         const liDOM = document.createElement('li');
-        liDOM.textContent = `${index + 1}件目のクイズデータ`
+        liDOM.textContent = `${index + 1}件目のクイズデータ`;
 
         // buildQuizList関数については、次のfeaturebrach(feature/buildQuizList-function)にて実装
-        // const quizLiElement = buildQuizList(quizdata, liDOM);
+        // const quizLiElement = buildQuizList(quizData, liDOM);
 
         ulDOM.appendChild(quizLiElement);
       });
