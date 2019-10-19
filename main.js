@@ -13,8 +13,24 @@
   //   3. 2から受け取ったデータの中に含まれている次のデータをid属性値が `quiz-list` のul要素にリスト表示する
   //     - resultsプロパティ(配列)の中に含まれている10件のデータ(オブジェクト)をforEachで取得する
   //       - 「◯件目のクイズデータ」をli要素として追加する
-  //       - buildQuizList関数の戻り値(ul要素のDOM)をli要素に追加する。(結果としてネスト(入れ子)構造のリストになる)
+  //       - buildQuizList関数の戻り値(li要素のDOM)をul要素に追加する。(結果としてネスト(入れ子)構造のリストになる)
+  fetch(API_URL)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      data.results.forEach((quizdata, index) => {
+        const ulDOM = document.getElementById('quiz-list');
 
+        const liDOM = document.createElement('li');
+        liDOM.textContent = `${index + 1}件目のクイズデータ`
+
+        // buildQuizList関数については、次のfeaturebrach(feature/buildQuizList-function)にて実装
+        // const quizLiElement = buildQuizList(quizdata, liDOM);
+
+        ulDOM.appendChild(quizLiElement);
+      });
+    })
 
   // `buildQuizList関数` を実装する
   //   - 実装する内容
