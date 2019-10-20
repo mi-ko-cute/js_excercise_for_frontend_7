@@ -25,9 +25,11 @@
         const liDOM = document.createElement('li');
         liDOM.textContent = `${index + 1}件目のクイズデータ`;
 
-        const quizLiElement = buildQuizList(quizData, liDOM);
+        const quizDataWrapElement = buildQuizList(quizData);
 
-        ulDOM.appendChild(quizLiElement);
+        liDOM.appendChild(quizDataWrapElement);
+        
+        ulDOM.appendChild(liDOM);
       });
     });
 
@@ -55,9 +57,7 @@
       quizDataWrapElement.appendChild(quizDataliElement);
     }
 
-    liDOM.appendChild(quizDataWrapElement);
-
-    return liDOM;
+    return quizDataWrapElement;
   }
 
 })();
