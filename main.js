@@ -47,7 +47,7 @@
   //  - 戻り値
   //    - ul要素のDOM
 
-  function buildQuizList(quizData, liDOM) {
+  function buildQuizList(quizData) {
     const quizDataWrapElement = document.createElement('ul');
 
     for (const key in quizData) {
